@@ -989,7 +989,7 @@ func (sc *serverConn) wroteFrame(res frameWriteResult) {
 			// RST_STREAM with an error code of NO_ERROR after sending
 			// a complete response.
 			sc.resetStream(streamError(st.id, ErrCodeNo))
-		case stateHalfClosedRemote:
+		case stateHalfClosedLocal:
 			sc.closeStream(st, errHandlerComplete, false)
 		}
 	} else {
